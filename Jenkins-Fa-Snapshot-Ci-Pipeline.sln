@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2010
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Jenkins-Fa-Snapshot-Ci-Pipeline", "Jenkins-Fa-Snapshot-Ci-Pipeline\Jenkins-Fa-Snapshot-Ci-Pipeline.sqlproj", "{FA2B639C-16FC-4DAD-A4ED-7D59E66DBC8D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FA2B639C-16FC-4DAD-A4ED-7D59E66DBC8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA2B639C-16FC-4DAD-A4ED-7D59E66DBC8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA2B639C-16FC-4DAD-A4ED-7D59E66DBC8D}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{FA2B639C-16FC-4DAD-A4ED-7D59E66DBC8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA2B639C-16FC-4DAD-A4ED-7D59E66DBC8D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA2B639C-16FC-4DAD-A4ED-7D59E66DBC8D}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D3AB5B93-878E-443D-AA72-29B5F730D9A4}
+	EndGlobalSection
+EndGlobal
