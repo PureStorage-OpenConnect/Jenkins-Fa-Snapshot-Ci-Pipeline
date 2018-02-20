@@ -1,0 +1,51 @@
+properties([
+    parameters([
+        string(name: 'database'            , defaultValue: 'SsdtDevOpsDemo')      ,
+        string(name: 'sourceinstance'      , defaultValue: 'WIN2016-A\\DevOpsPrd'),
+        string(name: 'destinationinstance' , defaultValue: 'WIN2016-A\\DevOpsTst'),
+        string(name: 'pfaendpoint'         , defaultValue: '10.123.456.78')              
+  ])
+])
+
+def PowerShell(psCmd) {
+    bat "powershell.exe -NonInteractive -ExecutionPolicy Bypass -Command \"\$ErrorActionPreference='Stop';$psCmd;EXIT \$global:LastExitCode\""
+}
+
+node {
+    stage('git checkout'){
+        timeout(time:1, unit:'MINUTES') {
+            git 'file:///C:/Projects/Jenkins-Fa-Snapshot-Ci-Pipeline'
+        }
+    }
+
+    stage('Build Dacpac from SQLProj') {
+        timeout(time:5, unit:'MINUTES') {
+            bat "\"${tool name: 'Default', type: 'msbuild'}\"  /p:Configuration=Release"
+            stash includes: 'Jenkins-Fa-Snapshot-Ci-Pipeline\\bin\\Release\\Jenkins-Fa-Snapshot-Ci-Pipeline.dacpac', name: 'theDacpac'
+        }
+    }
+    
+    stage('Refresh test from production')
+    {
+        timeout(time:5, unit:'MINUTES') {
+            withCredentials([[$class:         'UsernamePasswordMultiBinding', credentialsId: 'FA-Snapshot-CI-Array',
+                            usernameVariable: 'USERNAME'                    , passwordVariable: 'PASSWORD']]) {
+                PowerShell("Refresh-Dev-PsFunc -Database           ${params.database}            \
+                                               -SourceSqlInstance  ${params.sourceinstance}      \
+                                               -DestSqlInstance    ${params.destinationinstance} \
+                                               -PfaEndpoint        ${params.pfaendpoint}         \
+                                               -PfaUser            ${USERNAME}                   \
+                                               -PfaPassword        ${PASSWORD}")
+            }
+        }
+    }
+
+    stage('Deploy Dacpac to SQL Server')
+    {
+        timeout(time:2, unit:'MINUTES') {
+            unstash 'theDacpac'
+            def ConnString = "server=${params.destinationinstance};database=${params.database}"
+            bat "\"C:\\Program Files (x86)\\Microsoft SQL Server\\140\\DAC\\bin\\sqlpackage.exe\" /Action:Publish /SourceFile:\"Jenkins-Fa-Snapshot-Ci-Pipeline\\bin\\Release\\Jenkins-Fa-Snapshot-Ci-Pipeline.dacpac\" /TargetConnectionString:\"${ConnString}\""
+        }        
+    }
+}
