@@ -1,7 +1,7 @@
 # Jenkins Fa Snapshot Ci Pipeline Gallery
 
 ## Jenkinsfile.simple
-This is a build pipeline written in Jenkins script format that performs the following fnctions:
+This is a build pipeline written in Jenkins script format that performs the following functions:
 
 1. Checks out a SQL Server data tools project from a local GIT repo, this is created by cloning this repository to C:\Projects
 2. Builds the project into a DACPAC, in order to do this you will need DACFX ( https://www.microsoft.com/en-us/download/details.aspx?id=55114 ) or an installation of Visual Studio (community edition will suffice) installed for "Data Storage and Processing" workloads.
