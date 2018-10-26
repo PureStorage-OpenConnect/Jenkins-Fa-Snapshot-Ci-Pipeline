@@ -2,6 +2,6 @@
     "id": "Jenkins-Fa-Snapshot-Ci-Pipeline",
     "filter": "devops",
     "image": "http://code.purestorage.com/images/22_jenkins.png",
-    "featured": 1,
-    "priority": 1
+    "featured": 0,
+    "priority": 3
 }
