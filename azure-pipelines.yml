@@ -1,9 +1,0 @@
-pool:
-  vmImage: Self Hosted Pool
-  demands: msbuild
-
-steps:
-  - task: MSBuild@1
-    displayName: 'Build WWI-OLTP Solution'
-    inputs:
-      solution: 'Jenkins-Fa-Snapshot-Ci-Pipeline.sln'
