@@ -13,11 +13,5 @@ steps:
     displayName: 'Build DACPAC'
     inputs:
       solution: 'Jenkins-Fa-Snapshot-Ci-Pipeline.sln'
-
-  - pwsh: sqlpackage 
-    displayName: 'Deploy DACPAC'
-    name: firstStep
-    workingDirectory: $(build.sourcesDirectory)
-    failOnStderr: true
-    env:
-      name: Microsoft
+  - script: echo $(System.DefaultWorkingDirectory)
+    displayName: 'Apply DACPAC'
