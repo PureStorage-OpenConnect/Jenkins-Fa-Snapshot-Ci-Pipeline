@@ -19,7 +19,7 @@ steps:
       Write-Host '##vso[task.setvariable variable=pfaPassword;issecret=false]pureuser'
 
   - powershell: |
-      $securePassword = Write-Host "$(pfaPassword)" | ConvertTo-SecureString -AsPlainText -Force
+      $securePassword = ConvertTo-SecureString -String $(pfaPassword)
       $pfaCreds       = New-Object System.Management.Automation.PSCredential ( "pureuser", $securePassword )
       $Targets = @('Z-STN-WIN2016-A\DEVOPSDEV1_AC')
       Invoke-PfaDbRefresh -RefreshDatabase tpch-no-compression `
