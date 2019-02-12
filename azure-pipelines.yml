@@ -13,5 +13,24 @@ steps:
     displayName: 'Build DACPAC'
     inputs:
       solution: 'Jenkins-Fa-Snapshot-Ci-Pipeline.sln'
+  # Create a secret variable
+  - powershell: |
+      Write-Host '##vso[task.setvariable variable=pfaUsername;issecret=true]pureuser' 
+      Write-Host '##vso[task.setvariable variable=pfaPassword;issecret=true]pureuser'
+
+  - powershell: |   
+      $pfaCreds = new-object -typename System.Management.Automation.PSCredential `
+                  -argumentlist $(pfaUsername), $(pfaPassword)
+      $Targets = @('Z-STN-WIN2016-A\DEVOPSDEV1_AC')
+      Invoke-PfaDbRefresh -RefreshDatabase tpch-no-compression `
+                          -RefreshSource   Z-STN-WIN2016-A\DEVOPSPRD_AC `
+                          -DestSqlInstance $Targets `
+                          -PfaEndpoint     10.225.112.10 `
+                          -PfaCredentials  $pfaCreds
+      env:
+        MY_MAPPED_ENV_VAR: $(pfaUsername)
+        MY_MAPPED_ENV_VAR: $(pfaPassword)
+
   - script: echo $(System.DefaultWorkingDirectory)
     displayName: 'Apply DACPAC'
+
