@@ -16,7 +16,7 @@ steps:
   # Create a secret variable
   - powershell: |
       Write-Host '##vso[task.setvariable variable=pfaUsername;issecret=false]pureuser' 
-      Write-Host '##vso[task.setvariable variable=pfaPassword;issecret=false]pureuser'
+      Write-Host '##vso[task.setvariable variable=pfaPassword;issecret=true]pureuser'
 
   - powershell: |
       $securePassword = ConvertTo-SecureString -String $(pfaPassword) -AsPlainText -Force
