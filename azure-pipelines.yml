@@ -15,11 +15,12 @@ steps:
       solution: 'Jenkins-Fa-Snapshot-Ci-Pipeline.sln'
   # Create a secret variable
   - powershell: |
-      Write-Host '##vso[task.setvariable variable=pfaUsername;issecret=true]pureuser' 
-      Write-Host '##vso[task.setvariable variable=pfaPassword;issecret=true]pureuser'
+      Write-Host '##vso[task.setvariable variable=pfaUsername;issecret=false]pureuser' 
+      Write-Host '##vso[task.setvariable variable=pfaPassword;issecret=false]pureuser'
 
   - powershell: |
-      $pfaCreds       = New-Object System.Management.Automation.PSCredential ( "pureuser", "pureuser" )
+      $securePassword = $(pfaPassword) | ConvertTo-SecureString -AsPlainText -Force
+      $pfaCreds       = New-Object System.Management.Automation.PSCredential ( $pfaUsername, $securePassword )
       $Targets = @('Z-STN-WIN2016-A\DEVOPSDEV1_AC')
       Invoke-PfaDbRefresh -RefreshDatabase tpch-no-compression `
                           -RefreshSource   Z-STN-WIN2016-A\DEVOPSPRD_AC `
