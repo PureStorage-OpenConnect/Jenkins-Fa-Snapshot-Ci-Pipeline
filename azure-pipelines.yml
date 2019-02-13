@@ -6,7 +6,7 @@
 trigger:
 - master
 
-pool: 'Self Hosted Pool'
+pool: 'Self Hosted Win2016'
 
 steps:
   - task: MSBuild@1
