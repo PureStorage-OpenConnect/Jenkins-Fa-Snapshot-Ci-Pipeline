@@ -20,7 +20,7 @@ steps:
       $Targets = @('Z-STN-WIN2016-A\DEVOPSDEV1')
       Invoke-PfaDbRefresh -RefreshDatabase $(refreshDatabase) `
                           -RefreshSource   $(refreshSource) `
-                          -DestSqlInstance $Targets `
+                          -DestSqlInstance $(refreshTargets) `
                           -PfaEndpoint     $(pfaEndpoint) `
                           -PfaCredentials  $pfaCreds
 
