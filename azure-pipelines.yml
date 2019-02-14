@@ -26,4 +26,3 @@ steps:
 
   - script: echo $(System.DefaultWorkingDirectory)
     displayName: 'Apply DACPAC'
-
