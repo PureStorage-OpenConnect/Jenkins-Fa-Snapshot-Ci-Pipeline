@@ -21,7 +21,7 @@ steps:
       Invoke-PfaDbRefresh -RefreshDatabase $(refreshDatabase) `
                           -RefreshSource   Z-STN-WIN2016-A\DEVOPSPRD `
                           -DestSqlInstance $Targets `
-                          -PfaEndpoint     10.225.112.10 `
+                          -PfaEndpoint     $(pfaEndpoint) `
                           -PfaCredentials  $pfaCreds
 
   - script: echo $(System.DefaultWorkingDirectory)
