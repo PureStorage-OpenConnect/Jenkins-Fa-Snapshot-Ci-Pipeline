@@ -31,7 +31,7 @@ node {
         timeout(time:5, unit:'MINUTES') {
             PowerShell("Import-Module -Name PureStorageDbaTools; " + 
                        "\$Pwd   = Get-Content \'C:\\Temp\\Secure-Credentials.txt\' | ConvertTo-SecureString;" +
-                       "\$Creds = New-Object System.Management.Automation.PSCredential(\"pureuser\",\"pureuser\")")
+                       "\$Creds = New-Object System.Management.Automation.PSCredential(\'pureuser\',\'pureuser\')")
             /* +  
                        "Invoke-PfaDbRefresh -RefreshDatabase ${params.Database} "       + 
                                            "-RefreshSource   ${params.SourceInstance} " + 
