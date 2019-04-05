@@ -1,20 +1,17 @@
 properties([
     parameters([
-        string(name: 'database'            , defaultValue: 'SsdtDevOpsDemo')      ,
-        string(name: 'sourceinstance'      , defaultValue: 'WIN2016-A\\DevOpsPrd'),
-        string(name: 'destinationinstance' , defaultValue: 'WIN2016-A\\DevOpsTst'),
-        string(name: 'pfaendpoint'         , defaultValue: '10.123.456.78')              
+        string(name: 'Database'       , defaultValue: 'tpch-no-compression'),
+        string(name: 'SourceInstance' , defaultValue: 'Z-STN-WIN2016-A\\DEVOPSPRD'),
+        string(name: 'DestInstance'   , defaultValue: 'Z-STN-WIN2016-A\\DEVOPSDEV1'),
+        string(name: 'CredentialsFile', defaultValue: 'C:\\Temp\\Secure-Credentials.txt'),              
+        string(name: 'PfaEndpoint'    , defaultValue: '10.225.112.10')              
   ])
 ])
-
-def PowerShell(psCmd) {
-    bat "powershell.exe -NonInteractive -ExecutionPolicy Bypass -Command \"\$ErrorActionPreference='Stop';$psCmd;EXIT \$global:LastExitCode\""
-}
 
 node {
     stage('git checkout'){
         timeout(time:1, unit:'MINUTES') {
-            git 'file:///C:/Projects/Jenkins-Fa-Snapshot-Ci-Pipeline'
+            checkout
         }
     }
 
@@ -28,14 +25,16 @@ node {
     stage('Refresh test from production')
     {
         timeout(time:5, unit:'MINUTES') {
-            withCredentials([[$class:         'UsernamePasswordMultiBinding', credentialsId: 'FA-Snapshot-CI-Array',
-                            usernameVariable: 'USERNAME'                    , passwordVariable: 'PASSWORD']]) {
-                PowerShell("Refresh-Dev-PsFunc -Database           ${params.database}            \
-                                               -SourceSqlInstance  ${params.sourceinstance}      \
-                                               -DestSqlInstance    ${params.destinationinstance} \
-                                               -PfaEndpoint        ${params.pfaendpoint}         \
-                                               -PfaUser            ${USERNAME}                   \
-                                               -PfaPassword        ${PASSWORD}")
+            def stdout = powershell(returnStdout: true, script: '''
+                             \$Pwd   = Get-Content '${params.CredentialsFile}' | ConvertTo-SecureString
+                             \$Creds = New-Object System.Management.Automation.PSCredential (\"pureuser\", \$pwd)
+                             Invoke-PfaDbRefresh -RefreshDatabase ${params.Database}       `
+                                                 -RefreshSource   ${params.SourceInstance} `
+                                                 -DestSqlInstance ${params.DestInstance}   `
+                                                 -PfaEndpoint     ${params.PfaEndpoint}    `
+                                                 -PfaCredentials  $Creds 
+                                    ''')
+                println stdout
             }
         }
     }
@@ -44,7 +43,7 @@ node {
     {
         timeout(time:2, unit:'MINUTES') {
             unstash 'theDacpac'
-            def ConnString = "server=${params.destinationinstance};database=${params.database}"
+            def ConnString = "server=${params.DestInstance};database=${params.Database}"
             bat "\"C:\\Program Files (x86)\\Microsoft SQL Server\\140\\DAC\\bin\\sqlpackage.exe\" /Action:Publish /SourceFile:\"Jenkins-Fa-Snapshot-Ci-Pipeline\\bin\\Release\\Jenkins-Fa-Snapshot-Ci-Pipeline.dacpac\" /TargetConnectionString:\"${ConnString}\""
         }        
     }
