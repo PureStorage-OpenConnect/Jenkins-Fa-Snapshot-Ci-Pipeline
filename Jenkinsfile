@@ -26,6 +26,7 @@ node {
     {
         timeout(time:5, unit:'MINUTES') {
             def stdout = powershell(returnStdout: true, script: '''
+                             Import-Module -Name PureStorageDbaTools
                              \$Pwd   = Get-Content 'C:\\Temp\\Secure-Credentials.txt' | ConvertTo-SecureString
                              \$Creds = New-Object System.Management.Automation.PSCredential (\"pureuser\", \$pwd)
                              Invoke-PfaDbRefresh -RefreshDatabase ${params.Database}       `
