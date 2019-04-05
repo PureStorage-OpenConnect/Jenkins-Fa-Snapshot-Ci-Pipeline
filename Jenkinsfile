@@ -32,7 +32,7 @@ node {
             withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'FA-Snapshot-CI-Array',
                             usernameVariable: 'USERNAME' , passwordVariable: 'PASSWORD']]) {            
                 PowerShell("Import-Module -Name PureStorageDbaTools; " + 
-                           "\$Creds = New-Object System.Management.Automation.PSCredential(${USERNAME},${PASSWORD}); " +
+                           "\$Creds = New-Object System.Management.Automation.PSCredential(\"${USERNAME}\",\"${PASSWORD}\"); " +
                            "Invoke-PfaDbRefresh -RefreshDatabase ${params.Database} "       + 
                                                "-RefreshSource   ${params.SourceInstance} " + 
                                                "-DestSqlInstance ${params.DestInstance} "   + 
