@@ -35,7 +35,6 @@ node {
                                                  -PfaCredentials  $Creds 
                                     ''')
                 println stdout
-            }
         }
     }
 
