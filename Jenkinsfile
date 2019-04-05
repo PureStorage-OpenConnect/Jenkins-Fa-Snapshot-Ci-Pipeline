@@ -29,15 +29,16 @@ node {
     stage('Refresh test from production')
     {
         timeout(time:5, unit:'MINUTES') {
-            PowerShell("Import-Module -Name PureStorageDbaTools; " + 
-                       "\$Pwd   = Get-Content \'C:\\Temp\\Secure-Credentials.txt\' | ConvertTo-SecureString;" +
-                       "\$Creds = New-Object System.Management.Automation.PSCredential(\'pureuser\',\'pureuser\')")
-            /* +  
-                       "Invoke-PfaDbRefresh -RefreshDatabase ${params.Database} "       + 
-                                           "-RefreshSource   ${params.SourceInstance} " + 
-                                           "-DestSqlInstance ${params.DestInstance} "   + 
-                                           "-PfaEndpoint     ${params.PfaEndpoint} "    + 
-                                           "-PfaCredentials  \$Creds") */
+            withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'FA-Snapshot-CI-Array',
+                            usernameVariable: 'USERNAME' , passwordVariable: 'PASSWORD']]) {            
+                PowerShell("Import-Module -Name PureStorageDbaTools; " + 
+                           "\$Creds = New-Object System.Management.Automation.PSCredential(${USERNAME},${PASSWORD}); " +
+                           "Invoke-PfaDbRefresh -RefreshDatabase ${params.Database} "       + 
+                                               "-RefreshSource   ${params.SourceInstance} " + 
+                                               "-DestSqlInstance ${params.DestInstance} "   + 
+                                               "-PfaEndpoint     ${params.PfaEndpoint} "    + 
+                                               "-PfaCredentials  \$Creds")
+            }  
         }
     }
 
