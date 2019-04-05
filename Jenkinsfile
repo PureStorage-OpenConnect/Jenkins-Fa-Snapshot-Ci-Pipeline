@@ -25,6 +25,7 @@ node {
     stage('Refresh test from production')
     {
         timeout(time:5, unit:'MINUTES') {
+            powershell '''Import-Module -Name PureStorageDbaTools'''
             def stdout = powershell(returnStdout: true, script: '''
                              \$Pwd   = Get-Content 'C:\\Temp\\Secure-Credentials.txt' | ConvertTo-SecureString
                              \$Creds = New-Object System.Management.Automation.PSCredential (\"pureuser\", \$pwd)
