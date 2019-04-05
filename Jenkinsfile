@@ -31,13 +31,13 @@ node {
         timeout(time:5, unit:'MINUTES') {
             withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'FA-Snapshot-CI-Array',
                             usernameVariable: 'USERNAME' , passwordVariable: 'PASSWORD']]) {            
-                PowerShell("Import-Module -Name PureStorageDbaTools; " + 
-                           "\$Creds = New-Object System.Management.Automation.PSCredential \"pureuser\" \"pureuser\"; " +
-                           "Invoke-PfaDbRefresh -RefreshDatabase ${params.Database} "       + 
-                                               "-RefreshSource   ${params.SourceInstance} " + 
-                                               "-DestSqlInstance ${params.DestInstance} "   + 
-                                               "-PfaEndpoint     ${params.PfaEndpoint} "    + 
-                                               "-PfaCredentials  \$Creds")
+                powershell 'Import-Module -Name PureStorageDbaTools; ' + 
+                           '\$Creds = New-Object System.Management.Automation.PSCredential \"pureuser\" \"pureuser\"; ' +
+                           'Invoke-PfaDbRefresh -RefreshDatabase ${params.Database} '       + 
+                                               '-RefreshSource   ${params.SourceInstance} ' + 
+                                               '-DestSqlInstance ${params.DestInstance} '   + 
+                                               '-PfaEndpoint     ${params.PfaEndpoint} '    + 
+                                               '-PfaCredentials  \$Creds'
             }  
         }
     }
