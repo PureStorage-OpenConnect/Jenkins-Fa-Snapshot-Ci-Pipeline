@@ -11,7 +11,7 @@ properties([
 node {
     stage('git checkout'){
         timeout(time:1, unit:'MINUTES') {
-            checkout
+            git checkout
         }
     }
 
