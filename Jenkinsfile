@@ -34,10 +34,10 @@ node {
                 powershell 'Import-Module -Name PureStorageDbaTools; ' + 
                            '\$Pwd = Get-Content \'C:\\Temp\\Secure-Credentials.txt\' | ConvertTo-SecureString ;'  +
                            '\$Creds = New-Object System.Management.Automation.PSCredential(\"pureuser\",\$Pwd); ' +
-                           'Invoke-PfaDbRefresh -RefreshDatabase ' + ${params.Database}       + 
-                                              ' -RefreshSource   ' + ${params.SourceInstance} + 
-                                              ' -DestSqlInstance ' + ${params.DestInstance}   + 
-                                              ' -PfaEndpoint     ' + ${params.PfaEndpoint}    + 
+                           'Invoke-PfaDbRefresh -RefreshDatabase ' + "${params.Database}"       + 
+                                              ' -RefreshSource   ' + "${params.SourceInstance}" + 
+                                              ' -DestSqlInstance ' + "${params.DestInstance}"   + 
+                                              ' -PfaEndpoint     ' + "${params.PfaEndpoint}"    + 
                                               ' -PfaCredentials  \$Creds'
             }  
         }
