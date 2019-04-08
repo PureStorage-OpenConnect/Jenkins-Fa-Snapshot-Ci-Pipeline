@@ -4,7 +4,7 @@ Jenkins Pipeline to illsutrate the use of a database refresh in a contunuous int
 
 ![pipeline](https://user-images.githubusercontent.com/15145995/53749355-1c7a2580-3e9f-11e9-83aa-7cacdae17bda.PNG)
 
-This example Jenkins Pipeline checks a SQL Server data tools project and solution out of GitHub (the code), builds this into a DACPAC (the artefict), refreshes a pseudo test database from a pseudo production database and then applies the DACPAC to the test database.
+This example Jenkins Pipeline checks a SQL Server data tools project and solution out of GitHub (the code), builds this into a DACPAC (the artifict), refreshes a pseudo test database from a pseudo production database and then applies the DACPAC to the test database.
 
 ## Prerequisites
 
