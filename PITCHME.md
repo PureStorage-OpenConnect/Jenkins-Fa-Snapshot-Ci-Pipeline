@@ -1,5 +1,4 @@
-# Containers Analogy
-![image](https://user-images.githubusercontent.com/15145995/54530843-c9fb3780-497b-11e9-898a-c4843688e3ad.png)
+Continuous integration is the development practice that requires developers to integrate code into a shared repository several times a day. Each check-in is then verified by an automated build, allowing teams to detect problems early.
 ---
 @snap[north-west span-100 headline]
 # CI Pipeline 101
