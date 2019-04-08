@@ -28,6 +28,10 @@ node {
     
     stage('Refresh test from production')
     {
+        withCredentials([string(credentialsId: 'PfaCredentialsFile', variable: 'PfaCredentialsFile')]) {
+            print "${PfaCredentialsFile}"
+        }
+        
         timeout(time:5, unit:'MINUTES') {
             powershell 'Import-Module -Name PureStorageDbaTools; ' + 
                        '\$Pwd = Get-Content ' + "${CredentialsFile}" + ' | ConvertTo-SecureString;'  +
