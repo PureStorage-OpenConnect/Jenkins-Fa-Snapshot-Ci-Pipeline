@@ -29,7 +29,7 @@ A Common Problem . . .
 ---
 . . . The Solution
 ---
-
+![image](https://user-images.githubusercontent.com/15145995/55723922-2b09ae80-5a02-11e9-8b01-23b16b418041.png)
 ---
 @snap[north-west span-100 headline]
 # This Example 
