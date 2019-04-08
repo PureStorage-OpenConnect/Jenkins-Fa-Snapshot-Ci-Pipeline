@@ -1,4 +1,4 @@
-# AzureDevOps-Fa-Snapshot-Ci-Pipeline
+# Jenkins-Fa-Snapshot-Ci-Pipeline
 Jenkins Pipeline to illsutrate the use of a database refresh in a contunuous integration (CI) workflow.
 ## Overview
 
