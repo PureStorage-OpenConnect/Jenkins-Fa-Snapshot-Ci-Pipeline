@@ -7,10 +7,6 @@ properties([
   ])
 ])
 
-def  PowerShell(psCmd) {
-    bat "powershell.exe -NonInteractive -ExecutionPolicy Bypass -Command \"\$ErrorActionPreference='Stop';$psCmd;EXIT \$global:LastExitCode\""
-}
-
 node {
     stage('git checkout'){
         timeout(time:1, unit:'MINUTES') {
