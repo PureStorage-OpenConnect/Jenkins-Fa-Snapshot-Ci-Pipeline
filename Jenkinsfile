@@ -3,7 +3,6 @@ properties([
         string(name: 'Database'       , defaultValue: 'tpch-no-compression'),
         string(name: 'SourceInstance' , defaultValue: 'Z-STN-WIN2016-A\\DEVOPSPRD'),
         string(name: 'DestInstance'   , defaultValue: 'Z-STN-WIN2016-A\\DEVOPSDEV1'),
-        string(name: 'CredentialsFile', defaultValue: 'C:\\Temp\\Secure-Credentials.txt'),              
         string(name: 'PfaEndpoint'    , defaultValue: '10.225.112.10')              
   ])
 ])
@@ -39,7 +38,6 @@ node {
                                               ' -DestSqlInstance ' + "${params.DestInstance}"   + 
                                               ' -PfaEndpoint     ' + "${params.PfaEndpoint}"    + 
                                               ' -PfaCredentials  \$Creds'
-
             }
         }
     }
