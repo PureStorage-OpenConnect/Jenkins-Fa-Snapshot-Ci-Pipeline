@@ -28,19 +28,18 @@ node {
     
     stage('Refresh test from production')
     {
-        withCredentials([string(credentialsId: 'PfaCredentialsFile', variable: 'PfaCredentialsFile')]) {
-            print "${PfaCredentialsFile}"
-        }
-        
         timeout(time:5, unit:'MINUTES') {
-            powershell 'Import-Module -Name PureStorageDbaTools; ' + 
-                       '\$Pwd = Get-Content ' + "${CredentialsFile}" + ' | ConvertTo-SecureString;'  +
-                       '\$Creds = New-Object System.Management.Automation.PSCredential(\"pureuser\",\$Pwd); ' +
-                       'Invoke-PfaDbRefresh -RefreshDatabase ' + "${params.Database}"       + 
-                                          ' -RefreshSource   ' + "${params.SourceInstance}" + 
-                                          ' -DestSqlInstance ' + "${params.DestInstance}"   + 
-                                          ' -PfaEndpoint     ' + "${params.PfaEndpoint}"    + 
-                                          ' -PfaCredentials  \$Creds'
+            withCredentials([string(credentialsId: 'PfaCredentialsFile', variable: 'PfaCredentialsFile')]) {
+                powershell 'Import-Module -Name PureStorageDbaTools; ' + 
+                           '\$Pwd = Get-Content ' + "${PfaCredentialsFile}" + ' | ConvertTo-SecureString;'  +
+                           '\$Creds = New-Object System.Management.Automation.PSCredential(\"pureuser\",\$Pwd); ' +
+                           'Invoke-PfaDbRefresh -RefreshDatabase ' + "${params.Database}"       + 
+                                              ' -RefreshSource   ' + "${params.SourceInstance}" + 
+                                              ' -DestSqlInstance ' + "${params.DestInstance}"   + 
+                                              ' -PfaEndpoint     ' + "${params.PfaEndpoint}"    + 
+                                              ' -PfaCredentials  \$Creds'
+
+            }
         }
     }
 
