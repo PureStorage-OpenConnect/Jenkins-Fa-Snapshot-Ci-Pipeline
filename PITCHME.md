@@ -8,10 +8,6 @@ Continuous integration is the development practice that requires developers to i
 ---
 ![image](https://user-images.githubusercontent.com/15145995/55723183-45428d00-5a00-11e9-9457-e0270e993408.png)
 ---
-A Common Problem . . .
----
-![image](https://user-images.githubusercontent.com/15145995/55723334-ba15c700-5a00-11e9-95ca-ff55d4e35934.png)
----
 @snap[north-west span-100 headline]
 # Pipeline As Code
 @snapend
@@ -26,6 +22,14 @@ A Common Problem . . .
 * Pipeline as code is extensible
 
 * Pipeline as code can be kept under source code control with the actual application code itself
+---
+A Common Problem . . .
+---
+![image](https://user-images.githubusercontent.com/15145995/55723334-ba15c700-5a00-11e9-95ca-ff55d4e35934.png)
+---
+. . . The Solution
+---
+
 ---
 @snap[north-west span-100 headline]
 # This Example 
