@@ -11,8 +11,7 @@ Continuous integration is the development practice that requires developers to i
 @snap[north-west span-100 headline]
 # A Common Problem
 @snapend
-
-![ci 101](https://user-images.githubusercontent.com/15145995/54528274-66214080-4974-11e9-993b-88328b6d01d6.png)
+![image](https://user-images.githubusercontent.com/15145995/55723334-ba15c700-5a00-11e9-95ca-ff55d4e35934.png)
 ---
 @snap[north-west span-100 headline]
 # Pipeline As Code
