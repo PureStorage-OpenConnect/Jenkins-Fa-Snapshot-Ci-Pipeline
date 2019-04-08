@@ -29,10 +29,11 @@ node {
     stage('Refresh test from production')
     {
         timeout(time:5, unit:'MINUTES') {
-            withCredentials([string(credentialsId: 'PfaCredentialsFile', variable: 'PfaCredentialsFile')]) {
+            withCredentials([string(credentialsId: 'PfaCredentialsFile', variable: 'PfaCredentialsFile'),
+                             string(credentialsId: 'PfaUser'           , variable: 'PfaUser')]) {
                 powershell 'Import-Module -Name PureStorageDbaTools; ' + 
                            '\$Pwd = Get-Content ' + "${PfaCredentialsFile}" + ' | ConvertTo-SecureString;'  +
-                           '\$Creds = New-Object System.Management.Automation.PSCredential(\"pureuser\",\$Pwd); ' +
+                           '\$Creds = New-Object System.Management.Automation.PSCredential(\"' + "${PfaUser}" + '\",\$Pwd); ' +
                            'Invoke-PfaDbRefresh -RefreshDatabase ' + "${params.Database}"       + 
                                               ' -RefreshSource   ' + "${params.SourceInstance}" + 
                                               ' -DestSqlInstance ' + "${params.DestInstance}"   + 
