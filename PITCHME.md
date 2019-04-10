@@ -37,7 +37,6 @@ A Common Problem . . .
 ![image](https://user-images.githubusercontent.com/15145995/55720257-4d96ca00-59f8-11e9-9112-c3dcc0ce7a66.png)
 ---
 @snap[north-west span-100 headline]
-# Points Of Interest
+# The Cloud
 @snapend
 
-![points of interest](https://user-images.githubusercontent.com/15145995/46342042-b2303100-c631-11e8-97e2-0561f6f08daf.PNG)
