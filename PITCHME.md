@@ -24,13 +24,7 @@ Continuous integration is the development practice that requires developers to i
 
 * Pipeline as code can be kept under source code control with the actual application code itself
 ---
-A Common Problem . . .
----
-![image](https://user-images.githubusercontent.com/15145995/55723334-ba15c700-5a00-11e9-95ca-ff55d4e35934.png)
----
-. . . The Solution
----
-![image](https://user-images.githubusercontent.com/15145995/55723922-2b09ae80-5a02-11e9-8b01-23b16b418041.png)
+![image](https://user-images.githubusercontent.com/15145995/55898793-4966da00-5bbb-11e9-9be5-3967c9f8ecf3.png)
 ---
 @snap[north-west span-100 headline]
 # This Example 
