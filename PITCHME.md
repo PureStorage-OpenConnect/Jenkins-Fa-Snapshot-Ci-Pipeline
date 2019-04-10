@@ -9,10 +9,7 @@ Continuous integration is the development practice that requires developers to i
 ---
 ![image](https://user-images.githubusercontent.com/15145995/55897864-47038080-5bb9-11e9-9613-a993b8212b89.png)
 ---
-@snap[north-west span-100 headline]
-# Pipeline As Code
-@snapend
-![pipeline as code](https://user-images.githubusercontent.com/15145995/46341431-f6bacd00-c62f-11e8-945f-4a45f269e785.PNG)
+![image](https://user-images.githubusercontent.com/15145995/55914110-3addea00-5bde-11e9-9c8f-b5169c1b0fb6.png)
 ---
 @snap[north-west span-100 headline]
 # Why It Matters
