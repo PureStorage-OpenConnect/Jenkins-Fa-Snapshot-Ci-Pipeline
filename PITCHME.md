@@ -40,3 +40,5 @@ A Common Problem . . .
 ---
 ![image](https://user-images.githubusercontent.com/15145995/55895963-2802ef80-5bb5-11e9-857b-7b2828b3f796.png)
 ---
+![image](https://user-images.githubusercontent.com/15145995/55896735-e115f980-5bb6-11e9-915c-65767cbea86b.png)
+
