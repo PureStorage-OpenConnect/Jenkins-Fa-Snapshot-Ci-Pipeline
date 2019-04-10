@@ -31,8 +31,6 @@ Continuous integration is the development practice that requires developers to i
 ---
 ![image](https://user-images.githubusercontent.com/15145995/55895963-2802ef80-5bb5-11e9-857b-7b2828b3f796.png)
 ---
-![image](https://user-images.githubusercontent.com/15145995/55896735-e115f980-5bb6-11e9-915c-65767cbea86b.png)
----
 ![image](https://user-images.githubusercontent.com/15145995/55897169-e9226900-5bb7-11e9-9601-de3a1f26bbe4.png)
 ---
 ![image](https://user-images.githubusercontent.com/15145995/55898420-7070dc00-5bba-11e9-8e3d-15162552e187.png)
