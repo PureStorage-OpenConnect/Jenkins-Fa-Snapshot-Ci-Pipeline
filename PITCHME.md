@@ -16,7 +16,7 @@ Continuous integration is the development practice that requires developers to i
 ![pipeline as code](https://user-images.githubusercontent.com/15145995/46341431-f6bacd00-c62f-11e8-945f-4a45f269e785.PNG)
 ---
 @snap[north-west span-100 headline]
-# . . . Why It Matters
+# Why It Matters
 @snapend
 * Pipeline as code is reusable
 
@@ -45,5 +45,6 @@ A Common Problem . . .
 ---
 ![image](https://user-images.githubusercontent.com/15145995/55897169-e9226900-5bb7-11e9-9601-de3a1f26bbe4.png)
 ---
+![image](https://user-images.githubusercontent.com/15145995/55898420-7070dc00-5bba-11e9-8e3d-15162552e187.png)
 
 
