@@ -11,6 +11,8 @@
 ---
 ![image](https://user-images.githubusercontent.com/15145995/55914110-3addea00-5bde-11e9-9c8f-b5169c1b0fb6.png)
 ---
+![image](https://user-images.githubusercontent.com/15145995/55914774-e9cef580-5bdf-11e9-931f-c0d5ddaed672.png)
+---
 @snap[north-west span-100 headline]
 # Why It Matters
 @snapend
