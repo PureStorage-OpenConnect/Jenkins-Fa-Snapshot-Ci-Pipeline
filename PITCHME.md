@@ -42,5 +42,5 @@ A Common Problem . . .
 ---
 ![image](https://user-images.githubusercontent.com/15145995/55896735-e115f980-5bb6-11e9-915c-65767cbea86b.png)
 ---
-
+![image](https://user-images.githubusercontent.com/15145995/55897169-e9226900-5bb7-11e9-9601-de3a1f26bbe4.png)
 
