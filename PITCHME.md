@@ -1,4 +1,4 @@
-Continuous integration is the development practice that requires developers to integrate code into a shared repository several times a day. Each check-in is then verified by an automated build, allowing teams to detect problems early.
+![image](https://user-images.githubusercontent.com/15145995/55914376-e5eea380-5bde-11e9-90b0-c54cba7c9cbd.png)
 ---
 @snap[north-west span-100 headline]
 # CI Pipeline 101
