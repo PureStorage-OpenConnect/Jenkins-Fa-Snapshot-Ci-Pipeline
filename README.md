@@ -79,4 +79,25 @@ This example Jenkins Pipeline checks a SQL Server data tools project and solutio
  
  1. At the top level of the Jenkins console navigate to "Global tools configuration".
  
- 2. 
+ 2. Under the section for MSBuild, click "Add MSBuild":
+
+![image](https://user-images.githubusercontent.com/15145995/56358600-0a4a1180-61d7-11e9-98ce-37bbe63b0f65.png)
+
+ 3. In the 'Name' text box, enter the string Default.
+ 
+ 4. In the "Path to MSBuild2 text box, enter the string:
+
+ C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\MSBuild\15.0\Bin\msbuild.exe
+ 
+ 5. Ensure that the the Jenkins service (service as in Windows service) is running under a Windows domain account that can:
+
+ - Connect to the database that is the source of the database refresh
+ - Connect to the database that is the target of the database refresh
+ - Offline the database that is the target of the database refresh
+ -  Online the database that is the target of the database refresh
+ 
+ for testing purposes, the simplest way to achieve this is to give the login the sysadmin privilege on the target instance.
+ 
+ 6. Navigate to Jenkins -> New Item enter a name in the text box under "Enter an item name" and then hit Pipeline.
+ 
+ 7. 
