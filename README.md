@@ -110,11 +110,18 @@ This example Jenkins Pipeline checks a SQL Server data tools project and solutio
  
  9. Hit Apply followed by Save.
  
- 10. 
+ 10. Create two secrets, one for the username (PfaUser) used to log into the FlashArray used for the source and target databases and one for the credentials file (PfaCredentialsFile) containing the FlashArray user password:
  
- ### Instigating a Build
+ ![image](https://user-images.githubusercontent.com/15145995/56360396-6ebb9f80-61dc-11e9-9c8a-8d6c25664a72.png)
  
- 1. 
+ 11. Finally, create a secure credntials file on the host on which the Jenkins build server runs. Do this by starting a PowerShell session, enter the following command:
+
+     `Read-Host -AsSecureString | ConvertFrom-SecureString | Out-File 'C:\Temp\Secure-Credentials.txt'`
+     
+     when prompted for a string by a popup text box, enter the password of the FlashArray user that the database refresh element
+     of the pipeline will use.
+ 
+ ### Instigating a Build 
  
  ![image](https://user-images.githubusercontent.com/15145995/56360186-c6a5d680-61db-11e9-89ee-29fef92892cc.png)
  
