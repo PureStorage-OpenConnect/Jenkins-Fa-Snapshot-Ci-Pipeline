@@ -43,7 +43,7 @@ node {
         timeout(time:2, unit:'MINUTES') {
             unstash 'theDacpac'
             def ConnString = "server=${params.DestInstance};database=${params.Database}"
-            bat "\"C:\\Program Files (x86)\\Microsoft SQL Server\\140\\DAC\\bin\\sqlpackage.exe\" /Action:Publish /SourceFile:\"Jenkins-Fa-Snapshot-Ci-Pipeline\\bin\\Release\\Jenkins-Fa-Snapshot-Ci-Pipeline.dacpac\" /TargetConnectionString:\"${ConnString}\""
+            bat "\"C:\\SSDTTools\\sqlpackage.exe\" /Action:Publish /SourceFile:\"Jenkins-Fa-Snapshot-Ci-Pipeline\\bin\\Release\\Jenkins-Fa-Snapshot-Ci-Pipeline.dacpac\" /TargetConnectionString:\"${ConnString}\""
         }        
     }
 }
