@@ -28,7 +28,8 @@ This example Jenkins Pipeline checks a SQL Server data tools project and solutio
  
  1. Download Visual Studio 2019 Community edition from this [link](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=Community&rel=16).
  
- 2. Install Visual Studio via the executable downloaded in the previous step, ensure that the tool set for "Data storage and processing is installed:
+ 2. Install Visual Studio via the executable downloaded in the previous step, ensure that the tool set for "Data storage and processing 
+    is installed:
  
  ![image](https://user-images.githubusercontent.com/15145995/56358336-3b761200-61d6-11e9-85bd-2325e4c81137.png)
 
@@ -40,7 +41,8 @@ This example Jenkins Pipeline checks a SQL Server data tools project and solutio
  
     `nuget.exe install Microsoft.data.tools.msbuild -ExcludeVersion -OutputDirectory "C:\SSDTTools"`
     
- 6. Configure the environment for SQL Server Data Tools by running the following three commands from within a DOS command shell window with Administrator privileges:
+ 6. Configure the environment for SQL Server Data Tools by running the following three commands from within a DOS command shell window 
+    with Administrator privileges:
 
     `setx PATH "%PATH%;C:\SSDTTools\Microsoft.Data.Tools.Msbuild\lib\net46" /M`
     
@@ -96,7 +98,7 @@ This example Jenkins Pipeline checks a SQL Server data tools project and solutio
  - Offline the database that is the target of the database refresh
  -  Online the database that is the target of the database refresh
  
- for testing purposes, the simplest way to achieve this is to give the login the sysadmin privilege on the target instance.
+    for testing purposes, the simplest way to achieve this is to give the login the sysadmin privilege on the target instance.
  
  6. Navigate to Jenkins -> New Item enter a name in the text box under "Enter an item name" and then hit Pipeline.
  
@@ -110,11 +112,13 @@ This example Jenkins Pipeline checks a SQL Server data tools project and solutio
  
  9. Hit Apply followed by Save.
  
- 10. Create two secrets, one for the username (PfaUser) used to log into the FlashArray used for the source and target databases and one for the credentials file (PfaCredentialsFile) containing the FlashArray user password:
+ 10. Create two secrets, one for the username (PfaUser) used to log into the FlashArray used for the source and target databases and one 
+     for the credentials file (PfaCredentialsFile) containing the FlashArray user password:
  
  ![image](https://user-images.githubusercontent.com/15145995/56360396-6ebb9f80-61dc-11e9-9c8a-8d6c25664a72.png)
  
- 11. Finally, create a secure credntials file on the host on which the Jenkins build server runs. Do this by starting a PowerShell session, enter the following command:
+ 11. Finally, create a secure credntials file on the host on which the Jenkins build server runs. Do this by starting a PowerShell 
+     session, enter the following command:
 
      `Read-Host -AsSecureString | ConvertFrom-SecureString | Out-File 'C:\Temp\Secure-Credentials.txt'`
      
@@ -122,6 +126,11 @@ This example Jenkins Pipeline checks a SQL Server data tools project and solutio
      of the pipeline will use.
  
  ### Instigating a Build 
+ 
+ Navigate to the pipeline, "PFA Basic Pipeline" in this example, despite the fact that the pipeline is parameterised, Jenkins will
+ only prompt for parameters from the second build onwards, therefore, unless your environment mirrors the default parameters used
+ in the Jenkinsfile, the first build may fail. However, after the very first build has been performed, the 'Build' will be replaced with 
+ "Build with Parameters". Change the 
  
  ![image](https://user-images.githubusercontent.com/15145995/56360186-c6a5d680-61db-11e9-89ee-29fef92892cc.png)
  
