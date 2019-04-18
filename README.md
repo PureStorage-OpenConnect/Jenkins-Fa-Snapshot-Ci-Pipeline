@@ -26,21 +26,21 @@ This example Jenkins Pipeline checks a SQL Server data tools project and solutio
     
  ### msbuild and SQL Server Data Tools Installation
  
- 1. Download Visual Studio 2019 Community edition from this [link](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=Community&rel=16)
+ 1. Download Visual Studio 2019 Community edition from this [link](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=Community&rel=16).
  
  2. Install Visual Studio via the executable downloaded in the previous step, ensure that the tool set for "Data storage and processing is installed:
+ 
+ ![image](https://user-images.githubusercontent.com/15145995/56358336-3b761200-61d6-11e9-85bd-2325e4c81137.png)
 
-
+ 3. Downloasd the command line for nuget (nuget.exe) from this [link](https://dist.nuget.org/win-x86-commandline/v4.7.0/nuget.exe).
  
- 1. Downloasd the command line for nuget (nuget.exe) from this [link](https://dist.nuget.org/win-x86-commandline/v4.7.0/nuget.exe).
+ 4. Add the absolute path of nuget.exe to the PATH variable.
  
- 2. Add the absolute path of nuget.exe to the PATH variable.
- 
- 3. Install SQL Server Data Tools:
+ 5. Install SQL Server Data Tools:
  
     `nuget.exe install Microsoft.data.tools.msbuild -ExcludeVersion -OutputDirectory "C:\SSDTTools"`
     
- 4. Configure the environment for SQL Server Data Tools by running the following three commands:
+ 6. Configure the environment for SQL Server Data Tools by running the following three commands from within a DOS command shell window with Administrator privileges:
 
     `setx PATH "%PATH%;C:\SSDTTools\Microsoft.Data.Tools.Msbuild\lib\net46" /M`
     
@@ -48,7 +48,7 @@ This example Jenkins Pipeline checks a SQL Server data tools project and solutio
     
     `setx SSDTPath C:\SSDTTools\Microsoft.Data.Tools.Msbuild\lib\net46 /M`
     
- 5. Open a DOS command shell whilst logged in as the domain account that the Azure DevOps build agent runs under. 
+ 7. Open a DOS command shell whilst logged in as the domain account that the Azure DevOps build agent runs under. 
     Check that msbuild and sqlpackage can be found by using the following commands:
 
     `where msbuild`
@@ -76,3 +76,7 @@ This example Jenkins Pipeline checks a SQL Server data tools project and solutio
     `Install-Module -Name PureStorageDbaTools`
  
  ### Pipeline Creation and Configuration
+ 
+ 1. At the top level of the Jenkins console navigate to "Global tools configuration".
+ 
+ 2. 
