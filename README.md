@@ -10,7 +10,7 @@ This example Jenkins Pipeline checks a SQL Server data tools project and solutio
 
 1. The following software components need to be installed on the build server:
 - Jenkins
-- msbuild for SQL Server database targets,
+- Visual Studio 2019 Community Edition,
 - Data Tools framework (DAC Fx),
 - PureStorageDbaTools PowerShell module, the installation of which will also install the dbatools and PureStoragePowerShellSDK.
 
