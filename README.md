@@ -139,6 +139,8 @@ This example Jenkins Pipeline checks a SQL Server data tools project and solutio
  ![image](https://user-images.githubusercontent.com/15145995/56361752-15556f80-61e0-11e9-9091-07d3ec881779.png)
  
  In the newer more modern looking "Blue ocean" GUI, a successful build should appear as follows:
+ 
+ ![image](https://user-images.githubusercontent.com/15145995/56361930-81d06e80-61e0-11e9-953c-a5620cca4702.png)
 
 
  
