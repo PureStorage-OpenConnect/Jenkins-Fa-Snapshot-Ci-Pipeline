@@ -28,7 +28,7 @@ This example Jenkins Pipeline checks a SQL Server data tools project and solutio
  
  1. Download Visual Studio 2019 Community edition from this [link](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=Community&rel=16).
  
- 2. Install Visual Studio via the executable downloaded in the previous step, ensure that the tool set for "Data storage and processing 
+ 2. Install Visual Studio via the executable downloaded in the previous step, ensure that the tool set for "Data storage and processing" 
     is installed:
  
  ![image](https://user-images.githubusercontent.com/15145995/56358336-3b761200-61d6-11e9-85bd-2325e4c81137.png)
@@ -89,7 +89,7 @@ This example Jenkins Pipeline checks a SQL Server data tools project and solutio
  
  4. In the "Path to MSBuild2 text box, enter the string:
 
- C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\MSBuild\15.0\Bin\msbuild.exe
+    `C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\MSBuild\15.0\Bin\msbuild.exe`
  
  5. Ensure that the the Jenkins service (service as in Windows service) is running under a Windows domain account that can:
 
