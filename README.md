@@ -33,7 +33,7 @@ This example Jenkins Pipeline checks a SQL Server data tools project and solutio
  
  ![image](https://user-images.githubusercontent.com/15145995/56358336-3b761200-61d6-11e9-85bd-2325e4c81137.png)
 
- 3. Downloasd the command line for nuget (nuget.exe) from this [link](https://dist.nuget.org/win-x86-commandline/v4.7.0/nuget.exe).
+ 3. Download the command line utility for nuget (nuget.exe) from this [link](https://dist.nuget.org/win-x86-commandline/v4.7.0/nuget.exe).
  
  4. Add the absolute path of nuget.exe to the PATH variable.
  
