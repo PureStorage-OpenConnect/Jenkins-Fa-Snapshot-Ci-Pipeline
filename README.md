@@ -26,6 +26,12 @@ This example Jenkins Pipeline checks a SQL Server data tools project and solutio
     
  ### msbuild and SQL Server Data Tools Installation
  
+ 1. Download Visual Studio 2019 Community edition from this [link](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=Community&rel=16)
+ 
+ 2. Install Visual Studio via the executable downloaded in the previous step, ensure that the tool set for "Data storage and processing is installed:
+
+
+ 
  1. Downloasd the command line for nuget (nuget.exe) from this [link](https://dist.nuget.org/win-x86-commandline/v4.7.0/nuget.exe).
  
  2. Add the absolute path of nuget.exe to the PATH variable.
