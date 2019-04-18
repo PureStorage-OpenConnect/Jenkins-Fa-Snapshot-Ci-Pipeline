@@ -100,4 +100,19 @@ This example Jenkins Pipeline checks a SQL Server data tools project and solutio
  
  6. Navigate to Jenkins -> New Item enter a name in the text box under "Enter an item name" and then hit Pipeline.
  
- 7. 
+ 7. In the Pipeline section, select "Pipeline script from SCM" from the pulldown list of options and then GIT for the SCM 
+
+![image](https://user-images.githubusercontent.com/15145995/56359212-d5d75500-61d8-11e9-87d1-b83bb2568ce6.png)
+
+ 8. In the "Repository URL" text box enter:
+
+ https://github.com/PureStorage-OpenConnect/Jenkins-Fa-Snapshot-Ci-Pipeline
+ 
+ 9. Hit Apply followed by Save.
+ 
+ ### Instigating a Build
+ 
+ 
+ 
+ 
+ 
