@@ -136,6 +136,12 @@ This example Jenkins Pipeline checks a SQL Server data tools project and solutio
  
  Once a build has successfully been performed, all the build steps should be rendered in green:
  
+ ![image](https://user-images.githubusercontent.com/15145995/56361752-15556f80-61e0-11e9-9091-07d3ec881779.png)
+ 
+ In the newer more modern looking "Blue ocean" GUI, a successful build should appear as follows:
+
+
+ 
  
  
  
