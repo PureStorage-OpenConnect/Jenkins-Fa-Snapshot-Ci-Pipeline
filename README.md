@@ -130,9 +130,13 @@ This example Jenkins Pipeline checks a SQL Server data tools project and solutio
  Navigate to the pipeline, "PFA Basic Pipeline" in this example, despite the fact that the pipeline is parameterised, Jenkins will
  only prompt for parameters from the second build onwards, therefore, unless your environment mirrors the default parameters used
  in the Jenkinsfile, the first build may fail. However, after the very first build has been performed, the 'Build' will be replaced with 
- "Build with Parameters". Change the 
+ "Build with Parameters". Change the parameters to values appropriate for your enivironment:
+
+ ![image](https://user-images.githubusercontent.com/15145995/56361546-95c7a080-61df-11e9-9535-c6cfb8a1dc72.png)
  
- ![image](https://user-images.githubusercontent.com/15145995/56360186-c6a5d680-61db-11e9-89ee-29fef92892cc.png)
+ Once a build has successfully been performed, all the build steps should be rendered in green:
+ 
+ 
  
  
  
