@@ -110,7 +110,13 @@ This example Jenkins Pipeline checks a SQL Server data tools project and solutio
  
  9. Hit Apply followed by Save.
  
+ 10. 
+ 
  ### Instigating a Build
+ 
+ 1. 
+ 
+ ![image](https://user-images.githubusercontent.com/15145995/56360186-c6a5d680-61db-11e9-89ee-29fef92892cc.png)
  
  
  
