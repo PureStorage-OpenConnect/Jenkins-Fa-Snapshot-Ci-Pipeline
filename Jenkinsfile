@@ -3,7 +3,8 @@ properties([
         string(name: 'Database'       , defaultValue: 'tpch-no-compression'),
         string(name: 'SourceInstance' , defaultValue: 'Z-STN-WIN2016-A\\DEVOPSPRD'),
         string(name: 'DestInstance'   , defaultValue: 'Z-STN-WIN2016-A\\DEVOPSDEV1'),
-        string(name: 'PfaEndpoint'    , defaultValue: '10.225.112.10')              
+        string(name: 'PfaEndpoint'    , defaultValue: '10.225.112.10'),              
+        string(name: 'SqlPackagePath' , defaultValue: 'C:\\SSDTTools\\Microsoft.Data.Tools.Msbuild\\lib\\net46\\sqlpackage.exe')              
   ])
 ])
 
@@ -43,7 +44,7 @@ node {
         timeout(time:2, unit:'MINUTES') {
             unstash 'theDacpac'
             def ConnString = "server=${params.DestInstance};database=${params.Database}"
-            bat "\"C:\\SSDTTools\\sqlpackage.exe\" /Action:Publish /SourceFile:\"Jenkins-Fa-Snapshot-Ci-Pipeline\\bin\\Release\\Jenkins-Fa-Snapshot-Ci-Pipeline.dacpac\" /TargetConnectionString:\"${ConnString}\""
+            bat "\"${SqlPackagePath}\" /Action:Publish /SourceFile:\"Jenkins-Fa-Snapshot-Ci-Pipeline\\bin\\Release\\Jenkins-Fa-Snapshot-Ci-Pipeline.dacpac\" /TargetConnectionString:\"${ConnString}\""
         }        
     }
 }
